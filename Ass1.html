@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Todo List</title>
+    <style>
+        body{
+            border: 5px solid red;
+            width:400px;
+            height:500px;
+            margin-left:40px;
+            padding:20px;
+        }
+        h2{
+            width:100px;
+            color:black;
+            background-color: rgb(87, 228, 17);
+        }
+        #todoList{
+            color:brown;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Todo List</h2>
+
+<input type="text" id="todoInput" placeholder="Enter task">
+<button onclick="addTodo()">Add</button>
+
+<ul id="todoList"></ul>
+
+<script>
+    
+    let todos = [];
+
+    function addTodo() {
+        let input = document.getElementById("todoInput");
+        let task = input.value;
+
+        if (task !== "") {
+            todos.push(task);   
+            input.value = "";   
+            displayTodos();     
+        }
+        else{
+    alert("please enter task");
+}
+    }
+
+    function displayTodos() {
+        let list = document.getElementById("todoList");
+        list.innerHTML = "";
+
+        for (let i = 0; i < todos.length; i++) {
+            list.innerHTML += "<li>" + todos[i] + "</li>";
+        }
+        
+    }
+    
+</script>
+
+</body>
+</html>
